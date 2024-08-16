@@ -1,7 +1,28 @@
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local takeHostage = {
 	allowedWeapons = {
 		`WEAPON_PISTOL`,
 		`WEAPON_COMBATPISTOL`,
+		`weapon_pistol_mk2`,
+		`weapon_appistol`,
+		`weapon_pistol50`,
+		`weapon_snspistol`,
+		`weapon_snspistol_mk2`,
+		`weapon_heavypistol`,
+		`weapon_vintagepistol`,
+		`weapon_marksmanpistol`,
+		`weapon_revolver`,
+		`weapon_revolver_mk2`,
+		`weapon_doubleaction`,
+		`weapon_ceramicpistol`,
+		`weapon_navyrevolver`,
+		`weapon_gadgetpistol`,
+		`weapon_de`,
+		`weapon_fnx45`,
+		`weapon_m1911`,
+		`weapon_glock18c`,
+		`weapon_glock17`,
 		--etc add guns you want
 	},
 	InProgress = false,
@@ -63,11 +84,11 @@ local function ensureAnimDict(animDict)
     return animDict
 end
 
--- local function drawNativeText(str)
--- 	SetTextEntry_2("STRING")
--- 	AddTextComponentString(str)
--- 	EndTextCommandPrint(1000, 1)
--- end
+local function drawNativeText(str)
+	SetTextEntry_2("STRING")
+	AddTextComponentString(str)
+	EndTextCommandPrint(1000, 1)
+end
 
 -- RegisterCommand("takehostage",function()
 -- 	callTakeHostage()
@@ -190,7 +211,7 @@ Citizen.CreateThread(function()
 			DisableControlAction(0,58,true) -- disable weapon
 			DisableControlAction(0,21,true) -- disable sprint
 			DisablePlayerFiring(PlayerPedId(),true)
-			-- drawNativeText("Press [G] to release, [H] to kill")
+			drawNativeText("Press [G] to release, [H] to kill")
 			text = "<b>[H]</b> Kill<br><b>[G]</b> Release"
 
 			if IsEntityDead(PlayerPedId()) then	
